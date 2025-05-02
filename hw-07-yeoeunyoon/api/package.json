@@ -1,0 +1,32 @@
+{
+  "name": "flashcards-api",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "prettier": "prettier --write \"src/**/*.ts\" --config \".prettierrc.json\"",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx src/db/seed.ts"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.3.0",
+    "@hono/node-server": "^1.13.2",
+    "@hono/zod-validator": "^0.4.1",
+    "@lucia-auth/adapter-drizzle": "^1.1.0",
+    "@node-rs/argon2": "^2.0.2",
+    "better-sqlite3": "^11.5.0",
+    "drizzle-orm": "^0.36.1",
+    "hono": "^4.6.8",
+    "lucia": "^3.2.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.11.17",
+    "drizzle-kit": "^0.28.0",
+    "prettier": "3.3.3",
+    "tsx": "^4.7.1"
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
+}

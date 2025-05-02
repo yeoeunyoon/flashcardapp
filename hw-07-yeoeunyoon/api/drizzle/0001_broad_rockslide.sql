@@ -1,0 +1,1 @@
+ALTER TABLE `decks` ADD `date` text DEFAULT 'CURRENT_TIMESTAMP';

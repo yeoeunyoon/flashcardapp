@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1730978973520,
+      "tag": "0000_same_mother_askani",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1732249150142,
+      "tag": "0001_broad_rockslide",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1732300963503,
+      "tag": "0002_naive_bloodstorm",
+      "breakpoints": true
+    }
+  ]
+}
