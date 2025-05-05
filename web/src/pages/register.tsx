@@ -4,11 +4,9 @@ import { Button } from "@/components/ui/button";
 import useAuth from "@/hooks/use-auth";
 import { getPagePath, redirectPage } from "@nanostores/router";
 import { $router } from "@/lib/router";
-import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { register } = useAuth();
-  const navigate = useNavigate();
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,7 +16,7 @@ const Register = () => {
     const username = formData.get("username") as string;
     const password = formData.get("password") as string;
     await register(name, username, password);
-    navigate("/");
+    //redirectPage($router, "home");
   };
 
   return (

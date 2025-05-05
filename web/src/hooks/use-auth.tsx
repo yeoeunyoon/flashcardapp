@@ -1,30 +1,10 @@
-import { signIn, signOut, signUp, validateSession } from "@/data/api";
+import { signIn, signOut, signUp } from "@/data/api";
 import { useStore } from "@nanostores/react";
 import { $user, clearUser, setUser } from "@/lib/store";
 import { toast } from "@/components/ui/use-toast";
-import { redirectPage } from "@nanostores/router";
-import { $router } from "@/lib/router";
 
 function useAuth() {
   const user = useStore($user);
-
-  const checkSession = async () => {
-    try {
-      const data = await validateSession();
-      if (data.valid) {
-        setUser(data.user);
-        return true;
-      } else {
-        clearUser();
-        redirectPage($router, "login");
-        return false;
-      }
-    } catch (error) {
-      clearUser();
-      redirectPage($router, "login");
-      return false;
-    }
-  };
 
   const login = async (username: string, password: string) => {
     try {
@@ -33,7 +13,6 @@ function useAuth() {
       }
       const data = await signIn(username, password);
       setUser(data);
-      redirectPage($router, "home");
     } catch (error) {
       const errorMessage =
         (error as Error).message ?? "Please try again later!";
@@ -52,7 +31,6 @@ function useAuth() {
       }
       const data = await signUp(name, username, password);
       setUser(data);
-      redirectPage($router, "home");
     } catch (error) {
       const errorMessage =
         (error as Error).message ?? "Please try again later!";
@@ -68,7 +46,6 @@ function useAuth() {
     try {
       await signOut();
       clearUser();
-      redirectPage($router, "login");
     } catch (error) {
       const errorMessage =
         (error as Error).message ?? "Please try again later!";
@@ -80,7 +57,7 @@ function useAuth() {
     }
   };
 
-  return { user, login, register, logout, checkSession };
+  return { user, login, register, logout };
 }
 
 export default useAuth;

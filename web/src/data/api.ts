@@ -204,21 +204,3 @@ export const signOut = async (): Promise<boolean> => {
   return true;
 };
 
-// Validate session
-export const validateSession = async (): Promise<{ valid: boolean; user?: UserType }> => {
-  const response = await fetch(`${API_URL}/validate-session`, {
-    method: "GET",
-    credentials: "include",
-  });
-  
-  if (!response.ok) {
-    return { valid: false };
-  }
-  
-  const data = await response.json();
-  return {
-    valid: true,
-    user: data.user,
-  };
-};
-
